@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.dao.UserDao">
+
+
+	<select id="get" parameterType="int" resultType="user">
+		select * from users where id = #{id}
+	</select>
+
+	<select id="getAll" resultType="user">
+		select * from users
+	</select>
+
+	<insert id="save" parameterType="user">
+		insert into users(username,password,sex)
+		values(#{username},#{password},#{sex})
+	</insert>
+
+	<update id="updateUser" parameterType="user" >
+		update users set username = #{username},password = #{password},
+		sex = #{sex},realName = #{realName} where id = #{id}
+	</update>
+	
+</mapper>
